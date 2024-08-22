@@ -1,4 +1,4 @@
-# fresh_app
+# clean_ease
 
 A new Flutter project.
 
