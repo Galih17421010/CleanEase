@@ -1,4 +1,4 @@
-# clean_ease
+# Clean Ease
 
 A new Flutter project.
 

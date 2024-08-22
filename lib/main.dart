@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Clean Ease',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 93, 0, 255)),
+            seedColor: const Color.fromARGB(255, 5, 16, 177)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Clean Ease'),
