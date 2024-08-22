@@ -1,6 +1,6 @@
-# CleanEase
+# fresh_app
 
-A new Flutter personal project for portfolio. This mobile apps for cleaning services booking online.
+A new Flutter project.
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 {
-    "name": "clean_ease",
-    "short_name": "clean_ease",
+    "name": "fresh_app",
+    "short_name": "fresh_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
