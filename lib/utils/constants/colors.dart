@@ -7,15 +7,15 @@ class AppColors {
   static const Color secondary = Color(0xFFFFE24B);
   static const Color accent = Color(0xFF4b0c7ff);
 
-  static const Gradient linerGradient = LinearGradient(
-    begin: Alignment(0.0, 0.0),
-    end: Alignment(0.707, -0.707),
-    colors: [
-      Color(0xFFFF9A9E),
-      Color(0xFFFAD0C4),
-      Color(0xFFFad0c4),
-    ],
-  );
+  // static const Gradient linerGradient = LinearGradient(
+  //   begin: Alignment(0.0, 0.0),
+  //   end: Alignment(0.707, -0.707),
+  //   colors: [
+  //     Color(0xFFFF9A9E),
+  //     Color(0xFFFAD0C4),
+  //     Color(0xFFFad0c4),
+  //   ],
+  // );
 
   static const Color textPrimary = Color(0xFF333333);
   static const Color textSecondary = Color(0xFF6C7570);
