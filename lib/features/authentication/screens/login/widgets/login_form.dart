@@ -1,3 +1,4 @@
+import 'package:clean_ease/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:clean_ease/features/authentication/screens/signup/signup.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/constants/text_strings.dart';
@@ -17,12 +18,15 @@ class AppLoginForm extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: AppSize.spaceBtwSections),
         child: Column(
           children: [
+            // email
             TextFormField(
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: AppTexts.email),
             ),
             const SizedBox(height: AppSize.spaceBtwInputFields),
+
+            // password
             TextFormField(
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.password_check),
@@ -43,7 +47,7 @@ class AppLoginForm extends StatelessWidget {
 
                 // Forget Password
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const ForgetPassword()),
                     child: const Text(AppTexts.forgetPassword)),
               ],
             ),
