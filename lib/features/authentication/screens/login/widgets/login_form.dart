@@ -1,5 +1,6 @@
 import 'package:clean_ease/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:clean_ease/features/authentication/screens/signup/signup.dart';
+import 'package:clean_ease/navigation_menu.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,8 @@ class AppLoginForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text(AppTexts.signIn))),
+                    onPressed: () => Get.to(() => NavigationMenu()),
+                    child: const Text(AppTexts.signIn))),
             const SizedBox(height: AppSize.spaceBtwItems),
 
             // Create Account Button
