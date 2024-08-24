@@ -6,6 +6,7 @@ import 'package:clean_ease/features/authentication/screens/login/widgets/login_h
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -25,7 +26,7 @@ class LoginScreen extends StatelessWidget {
               const AppLoginForm(),
 
               // Dvider
-              AppFormDivider(dividerText: AppTexts.orSignInWith),
+              AppFormDivider(dividerText: AppTexts.orSignInWith.capitalize!),
               const SizedBox(height: AppSize.spaceBtwSections),
 
               // Footer

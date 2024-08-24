@@ -28,7 +28,9 @@ class AppTexts {
   static const String createAccount = "Create Account";
   static const String orSignInWith = "Or Sign In With";
   static const String orSignUpWith = "Or Sign Up With";
+
   static const String iAgreeTo = "I agree to";
+  static const String and = "and";
   static const String privacyPolicy = "Privacy Policy";
   static const String termOfUse = "Terms of use";
   static const String verificationCode = "Verification Code";
