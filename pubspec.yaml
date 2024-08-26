@@ -25,6 +25,7 @@ dependencies:
   flutter_native_splash: ^2.4.1
   smooth_page_indicator: ^1.2.0+3
   capitalize: ^0.0.2
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -38,9 +39,9 @@ flutter:
   assets:
     - assets/logos/
     - assets/icons/services/
-    - assets/images/on_boarding/
     - assets/images/animations/
-    - assets/icons/services/
+    - assets/images/banners/
+    - assets/images/on_boarding/
 
   fonts:
     - family: Poppins

@@ -43,4 +43,9 @@ class AppImages {
       "assets/icons/services/icons8-no-cockroach-64.png";
   static const String electronicIcon =
       "assets/icons/services/icons8-services-64.png";
+
+  // Banners
+  static const String promoBanner1 = "assets/images/banners/banner1.jpg";
+  static const String promoBanner2 = "assets/images/banners/banner2.jpg";
+  static const String promoBanner3 = "assets/images/banners/banner3.jpg";
 }
