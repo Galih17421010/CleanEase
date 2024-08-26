@@ -2,8 +2,7 @@ import 'package:clean_ease/common/widgets/custom_shapes/containers/primary_heade
 import 'package:clean_ease/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
 import 'package:clean_ease/features/shop/screens/home/widget/home_appsbar.dart';
-import 'package:clean_ease/utils/constants/colors.dart';
-import 'package:clean_ease/utils/constants/image_strings.dart';
+import 'package:clean_ease/features/shop/screens/home/widget/home_categories.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -20,54 +19,27 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // App Bar
-                  const AppHomeAppsBar(),
-                  const SizedBox(height: AppSize.spaceBtwSections),
+                  AppHomeAppsBar(),
+                  SizedBox(height: AppSize.spaceBtwSections),
 
                   // Search Bar
-                  const AppSearchContainer(text: 'Search in Store'),
-                  const SizedBox(height: AppSize.spaceBtwSections),
+                  AppSearchContainer(text: 'Search in Store'),
+                  SizedBox(height: AppSize.spaceBtwSections),
 
                   // Categories
                   Padding(
-                    padding: const EdgeInsets.only(left: AppSize.defaultSpace),
+                    padding: EdgeInsets.only(left: AppSize.defaultSpace),
                     child: Column(
                       children: [
                         // heading
                         AppSectionHeading(
-                            title: 'Popular Services', showActionButton: false),
-                        const SizedBox(height: AppSize.spaceBtwItems),
+                            title: 'Popular Services',
+                            showActionButton: false,
+                            textColor: Colors.white),
+                        SizedBox(height: AppSize.spaceBtwItems),
 
                         // categories
-                        SizedBox(
-                          height: 80,
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: 6,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (_, index) {
-                              return Column(
-                                children: [
-                                  Container(
-                                    width: 56,
-                                    height: 56,
-                                    padding: const EdgeInsets.all(AppSize.sm),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.white,
-                                      borderRadius: BorderRadius.circular(100),
-                                    ),
-                                    child: Center(
-                                      child: Image(
-                                          image:
-                                              AssetImage(AppImages.sportIcon),
-                                          fit: BoxFit.cover,
-                                          color: AppColors.dark),
-                                    ),
-                                  )
-                                ],
-                              );
-                            },
-                          ),
-                        ),
+                        AppHomeCategories(),
                       ],
                     ),
                   )
