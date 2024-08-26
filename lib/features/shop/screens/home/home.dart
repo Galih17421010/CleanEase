@@ -1,3 +1,6 @@
+import 'package:clean_ease/common/widgets/layouts/grid_layout.dart';
+import 'package:clean_ease/common/widgets/products/product_card/product_card_vertical.dart';
+
 import 'package:clean_ease/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:clean_ease/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
@@ -13,7 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -52,12 +55,22 @@ class HomeScreen extends StatelessWidget {
 
             // Body
             Padding(
-              padding: EdgeInsets.all(AppSize.defaultSpace),
-              child: AppPromoSlider(
-                banners: [
-                  AppImages.promoBanner1,
-                  AppImages.promoBanner2,
-                  AppImages.promoBanner3
+              padding: const EdgeInsets.all(AppSize.defaultSpace),
+              child: Column(
+                children: [
+                  // Banner Promo
+                  const AppPromoSlider(banners: [
+                    AppImages.promoBanner1,
+                    AppImages.promoBanner2,
+                    AppImages.promoBanner3
+                  ]),
+                  const SizedBox(height: AppSize.spaceBtwSections),
+
+                  // Popular services
+                  AppGridLayout(
+                      itemCount: 4,
+                      itemBuilder: (_, index) =>
+                          const AppProductCardVertical()),
                 ],
               ),
             ),

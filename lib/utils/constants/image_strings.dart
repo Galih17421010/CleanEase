@@ -45,7 +45,39 @@ class AppImages {
       "assets/icons/services/icons8-services-64.png";
 
   // Banners
-  static const String promoBanner1 = "assets/images/banners/banner1.jpg";
+  static const String promoBanner1 = "assets/images/banners/banner1.png";
   static const String promoBanner2 = "assets/images/banners/banner2.jpg";
   static const String promoBanner3 = "assets/images/banners/banner3.jpg";
+
+  // Services Product
+  static const String product1 = "assets/images/products/produk-1.png";
+  static const String product2 = "";
+  static const String product3 = "";
+  static const String product4 = "";
+  static const String product5 = "";
+  static const String product6 = "";
+  static const String product7 = "";
+  static const String product8 = "";
+  static const String product9 = "";
+  static const String product10 = "";
+  static const String product11 = "";
+  static const String product12 = "";
+  static const String product13 = "";
+  static const String product14 = "";
+  static const String product15 = "";
+  static const String product16 = "";
+  static const String product17 = "";
+  static const String product18 = "";
+  static const String product19 = "";
+  static const String product20 = "";
+  static const String product21 = "";
+  static const String product22 = "";
+  static const String product23 = "";
+  static const String product24 = "";
+  static const String product25 = "";
+  static const String product26 = "";
+  static const String product27 = "";
+  static const String product28 = "";
+  static const String product29 = "";
+  static const String product30 = "";
 }
