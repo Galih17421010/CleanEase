@@ -3,9 +3,11 @@ import 'package:clean_ease/common/widgets/custom_shapes/containers/primary_heade
 import 'package:clean_ease/common/widgets/list_title/setting_menu_title.dart';
 import 'package:clean_ease/common/widgets/list_title/user_profile_title.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
+import 'package:clean_ease/features/personalization/screens/profile/profile.dart';
 import 'package:clean_ease/utils/constants/colors.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -29,7 +31,8 @@ class SettingScreen extends StatelessWidget {
                               .apply(color: AppColors.white))),
 
                   // user profile
-                  const AppUserProfileTitle(),
+                  AppUserProfileTitle(
+                      onPressed: () => Get.to(() => const ProfileScreen())),
                   const SizedBox(height: AppSize.spaceBtwSections),
                 ],
               ),
