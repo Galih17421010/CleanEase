@@ -18,97 +18,123 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppsBar(
-        title: Text('Store', style: Theme.of(context).textTheme.headlineMedium),
-        actions: [
-          AppCartCounterIcon(onPressed: () {}),
-        ],
-      ),
-      body: NestedScrollView(
-          headerSliverBuilder: (_, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                automaticallyImplyLeading: false,
-                pinned: true,
-                floating: true,
-                backgroundColor: AppHelperFunctions.isDarkMode(context)
-                    ? AppColors.black
-                    : AppColors.white,
-                expandedHeight: 440,
-                flexibleSpace: Padding(
-                  padding: EdgeInsets.all(AppSize.defaultSpace),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      //search bar
-                      const SizedBox(height: AppSize.spaceBtwItems),
-                      const AppSearchContainer(
-                          text: 'Search in apps',
-                          showBorder: true,
-                          showBackground: false,
-                          padding: EdgeInsets.zero),
-                      const SizedBox(height: AppSize.spaceBtwSections),
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        //App Bar
+        appBar: AppsBar(
+          title:
+              Text('Store', style: Theme.of(context).textTheme.headlineMedium),
+          actions: [
+            AppCartCounterIcon(onPressed: () {}),
+          ],
+        ),
+        body: NestedScrollView(
+            // Header
+            headerSliverBuilder: (_, innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  automaticallyImplyLeading: false,
+                  pinned: true,
+                  floating: true,
+                  backgroundColor: AppHelperFunctions.isDarkMode(context)
+                      ? AppColors.black
+                      : AppColors.white,
+                  expandedHeight: 440,
+                  flexibleSpace: Padding(
+                    padding: EdgeInsets.all(AppSize.defaultSpace),
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        //search bar
+                        const SizedBox(height: AppSize.spaceBtwItems),
+                        const AppSearchContainer(
+                            text: 'Search in apps',
+                            showBorder: true,
+                            showBackground: false,
+                            padding: EdgeInsets.zero),
+                        const SizedBox(height: AppSize.spaceBtwSections),
 
-                      //Feature Brands
-                      AppSectionHeading(
-                          title: 'Feature Services', onPressed: () {}),
-                      const SizedBox(height: AppSize.spaceBtwItems / 1.5),
+                        //Feature Brands
+                        AppSectionHeading(
+                            title: 'Feature Services', onPressed: () {}),
+                        const SizedBox(height: AppSize.spaceBtwItems / 1.5),
 
-                      AppGridLayout(
-                          itemCount: 4,
-                          itemBuilder: (_, index) {
-                            return GestureDetector(
-                              onTap: () {},
-                              child: AppRoundedContainer(
-                                padding: const EdgeInsets.all(AppSize.sm),
-                                showBorder: true,
-                                backgroundColor: Colors.transparent,
-                                child: Row(
-                                  children: [
-                                    // Icon
-                                    AppCircularImage(
-                                      isNetworkImage: false,
-                                      image: AppImages.cleaningIcon,
-                                      backgroundColor: Colors.transparent,
-                                      overlayColor:
-                                          AppHelperFunctions.isDarkMode(context)
-                                              ? AppColors.white
-                                              : AppColors.black,
-                                    ),
-                                    const SizedBox(
-                                        width: AppSize.spaceBtwItems / 2),
-
-                                    // Text
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const AppBrandTitleVerifiedIcon(
-                                            title: 'Nike',
-                                            brandTextSize: TextSize.large),
-                                        Text(
-                                          '265 products',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
+                        AppGridLayout(
+                            itemCount: 4,
+                            mainAxisExtent: 80,
+                            itemBuilder: (_, index) {
+                              return GestureDetector(
+                                onTap: () {},
+                                child: AppRoundedContainer(
+                                  padding: const EdgeInsets.all(AppSize.sm),
+                                  showBorder: true,
+                                  backgroundColor: Colors.transparent,
+                                  child: Row(
+                                    children: [
+                                      // Icon
+                                      Flexible(
+                                        child: AppCircularImage(
+                                          isNetworkImage: false,
+                                          image: AppImages.cleaningIcon,
+                                          backgroundColor: Colors.transparent,
+                                          overlayColor:
+                                              AppHelperFunctions.isDarkMode(
+                                                      context)
+                                                  ? AppColors.white
+                                                  : AppColors.black,
                                         ),
-                                      ],
-                                    )
-                                  ],
+                                      ),
+                                      const SizedBox(
+                                          width: AppSize.spaceBtwItems / 2),
+
+                                      // Text
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const AppBrandTitleVerifiedIcon(
+                                                title: 'Nike',
+                                                brandTextSize: TextSize.large),
+                                            Text(
+                                              '265 products with abcdefg',
+                                              overflow: TextOverflow.ellipsis,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .labelMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          })
-                    ],
+                              );
+                            })
+                      ],
+                    ),
                   ),
+                  bottom: TabBar(
+                      isScrollable: true,
+                      indicatorColor: AppColors.primary,
+                      unselectedLabelColor: AppColors.darkgrey,
+                      labelColor: AppHelperFunctions.isDarkMode(context)
+                          ? AppColors.white
+                          : AppColors.primary,
+                      tabs: [
+                        Tab(child: Text('Cleaning')),
+                        Tab(child: Text('Pest Control')),
+                        Tab(child: Text('Laundry')),
+                        Tab(child: Text('Electrician')),
+                      ]),
                 ),
-              ),
-            ];
-          },
-          body: Container()),
+              ];
+            },
+            body: Container()),
+      ),
     );
   }
 }
