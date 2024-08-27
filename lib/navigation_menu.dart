@@ -1,5 +1,6 @@
 import 'package:clean_ease/features/shop/screens/home/home.dart';
 import 'package:clean_ease/features/shop/screens/store/store.dart';
+import 'package:clean_ease/features/shop/screens/wishlist/wishlist.dart';
 import 'package:clean_ease/utils/constants/colors.dart';
 import 'package:clean_ease/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     const StoreScreen(),
-    Container(color: Colors.orange),
+    const FavouriteScreen(),
     Container(color: Colors.blue)
   ];
 }
