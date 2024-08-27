@@ -66,6 +66,11 @@ class HomeScreen extends StatelessWidget {
                   ]),
                   const SizedBox(height: AppSize.spaceBtwSections),
 
+                  // Heading
+                  AppSectionHeading(
+                      title: 'Popular Services', onPressed: () {}),
+                  const SizedBox(height: AppSize.spaceBtwItems),
+
                   // Popular services
                   AppGridLayout(
                       itemCount: 4,

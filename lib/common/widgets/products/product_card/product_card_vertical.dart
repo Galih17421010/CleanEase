@@ -86,29 +86,35 @@ class AppProductCardVertical extends StatelessWidget {
                           color: AppColors.primary, size: AppSize.iconXs),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const AppProductPriceText(price: '35.0'),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: AppColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(AppSize.cardRadiusMd),
-                            bottomRight:
-                                Radius.circular(AppSize.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                            width: AppSize.iconLg * 1.2,
-                            height: AppSize.iconLg * 1.2,
-                            child: const Icon(Iconsax.add,
-                                color: AppColors.white)),
-                      ),
-                    ],
-                  )
                 ],
               ),
+            ),
+
+            const Spacer(),
+            //price row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: AppSize.sm),
+                  child: AppProductPriceText(price: '35.0'),
+                ),
+
+                //Add cart button
+                Container(
+                  decoration: const BoxDecoration(
+                    color: AppColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(AppSize.cardRadiusMd),
+                      bottomRight: Radius.circular(AppSize.productImageRadius),
+                    ),
+                  ),
+                  child: const SizedBox(
+                      width: AppSize.iconLg * 1.2,
+                      height: AppSize.iconLg * 1.2,
+                      child: const Icon(Iconsax.add, color: AppColors.white)),
+                ),
+              ],
             )
           ],
         ),
