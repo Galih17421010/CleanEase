@@ -70,7 +70,7 @@ class AppProductCardVertical extends StatelessWidget {
 
             // Details
             const Padding(
-              padding: const EdgeInsets.only(left: AppSize.sm),
+              padding: EdgeInsets.only(left: AppSize.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -103,7 +103,7 @@ class AppProductCardVertical extends StatelessWidget {
                   child: const SizedBox(
                       width: AppSize.iconLg * 1.2,
                       height: AppSize.iconLg * 1.2,
-                      child: const Icon(Iconsax.add, color: AppColors.white)),
+                      child: Icon(Iconsax.add, color: AppColors.white)),
                 ),
               ],
             )

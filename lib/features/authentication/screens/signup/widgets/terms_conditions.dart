@@ -24,7 +24,7 @@ class AppTermConditionSignup extends StatelessWidget {
                 text: '${AppTexts.iAgreeTo} ',
                 style: Theme.of(context).textTheme.bodySmall),
             TextSpan(
-                text: '${AppTexts.privacyPolicy}',
+                text: AppTexts.privacyPolicy,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                       color: dark ? AppColors.white : AppColors.primary,
                       decoration: TextDecoration.underline,
@@ -35,7 +35,7 @@ class AppTermConditionSignup extends StatelessWidget {
                 text: ' ${AppTexts.and} ',
                 style: Theme.of(context).textTheme.bodySmall),
             TextSpan(
-                text: '${AppTexts.termOfUse}',
+                text: AppTexts.termOfUse,
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                       color: dark ? AppColors.white : AppColors.primary,
                       decoration: TextDecoration.underline,

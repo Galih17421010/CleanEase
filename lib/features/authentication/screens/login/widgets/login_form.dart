@@ -58,7 +58,7 @@ class AppLoginForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(() => NavigationMenu()),
+                    onPressed: () => Get.to(() => const NavigationMenu()),
                     child: const Text(AppTexts.signIn))),
             const SizedBox(height: AppSize.spaceBtwItems),
 

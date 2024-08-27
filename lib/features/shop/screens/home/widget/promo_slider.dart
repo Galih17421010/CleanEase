@@ -38,7 +38,7 @@ class AppPromoSlider extends StatelessWidget {
                   AppCircularContainer(
                       width: 20,
                       height: 4,
-                      margin: EdgeInsets.only(right: 10),
+                      margin: const EdgeInsets.only(right: 10),
                       backgroundColor:
                           controller.carouselCurrentIndex.value == i
                               ? AppColors.primary

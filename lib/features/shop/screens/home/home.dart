@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             // Header
-            AppPrimaryHeaderContainer(
+            const AppPrimaryHeaderContainer(
               child: Column(
                 children: [
                   // App Bar
@@ -48,7 +48,8 @@ class HomeScreen extends StatelessWidget {
                         AppHomeCategories(),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: AppSize.spaceBtwSections),
                 ],
               ),
             ),

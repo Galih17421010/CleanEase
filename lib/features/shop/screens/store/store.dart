@@ -40,7 +40,7 @@ class StoreScreen extends StatelessWidget {
                     : AppColors.white,
                 expandedHeight: 440,
                 flexibleSpace: Padding(
-                  padding: EdgeInsets.all(AppSize.defaultSpace),
+                  padding: const EdgeInsets.all(AppSize.defaultSpace),
                   child: ListView(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),

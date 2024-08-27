@@ -24,12 +24,12 @@ class VerifyEmailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(AppSize.defaultSpace),
+          padding: const EdgeInsets.all(AppSize.defaultSpace),
           child: Column(
             children: [
               // Image
               Image(
-                image: AssetImage(AppImages.deliveredEmailIllustration),
+                image: const AssetImage(AppImages.deliveredEmailIllustration),
                 width: AppHelperFunctions.screenWidth() * 0.6,
               ),
               const SizedBox(height: AppSize.spaceBtwSections),
