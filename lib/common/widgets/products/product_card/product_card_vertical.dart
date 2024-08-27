@@ -2,6 +2,7 @@ import 'package:clean_ease/common/styles/shadows.dart';
 import 'package:clean_ease/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:clean_ease/common/widgets/icons/circular_icon.dart';
 import 'package:clean_ease/common/widgets/images/app_rounded_image.dart';
+import 'package:clean_ease/common/widgets/texts/app_brand_title_verified_icon.dart';
 import 'package:clean_ease/common/widgets/texts/product_price_text.dart';
 import 'package:clean_ease/common/widgets/texts/product_title_text.dart';
 import 'package:clean_ease/utils/constants/colors.dart';
@@ -68,24 +69,14 @@ class AppProductCardVertical extends StatelessWidget {
             const SizedBox(height: AppSize.spaceBtwItems / 2),
 
             // Details
-            Padding(
+            const Padding(
               padding: const EdgeInsets.only(left: AppSize.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppProductTitleText(title: 'Green Nike Air', smallSize: true),
                   SizedBox(height: AppSize.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text('Nike',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(width: AppSize.xs),
-                      const Icon(Iconsax.verify5,
-                          color: AppColors.primary, size: AppSize.iconXs),
-                    ],
-                  ),
+                  AppBrandTitleVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),
