@@ -1,7 +1,6 @@
 import 'package:clean_ease/utils/constants/colors.dart';
 import 'package:clean_ease/utils/devices/device_utility.dart';
 import 'package:clean_ease/utils/helpers/helper_function.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppTabBar extends StatelessWidget implements PreferredSizeWidget {
