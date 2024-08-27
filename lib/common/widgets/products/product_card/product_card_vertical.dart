@@ -5,11 +5,13 @@ import 'package:clean_ease/common/widgets/images/app_rounded_image.dart';
 import 'package:clean_ease/common/widgets/texts/app_brand_title_verified_icon.dart';
 import 'package:clean_ease/common/widgets/texts/product_price_text.dart';
 import 'package:clean_ease/common/widgets/texts/product_title_text.dart';
+import 'package:clean_ease/features/shop/screens/product_details/product_detail.dart';
 import 'package:clean_ease/utils/constants/colors.dart';
 import 'package:clean_ease/utils/constants/image_strings.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AppProductCardVertical extends StatelessWidget {
@@ -20,7 +22,7 @@ class AppProductCardVertical extends StatelessWidget {
     final dark = AppHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
