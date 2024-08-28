@@ -26,6 +26,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   capitalize: ^0.0.2
   carousel_slider: ^5.0.0
+  readmore: ^3.0.0
 
 dev_dependencies:
   flutter_test:
