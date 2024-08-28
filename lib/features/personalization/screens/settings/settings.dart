@@ -3,6 +3,7 @@ import 'package:clean_ease/common/widgets/custom_shapes/containers/primary_heade
 import 'package:clean_ease/common/widgets/list_title/setting_menu_title.dart';
 import 'package:clean_ease/common/widgets/list_title/user_profile_title.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
+import 'package:clean_ease/features/personalization/screens/address/address.dart';
 import 'package:clean_ease/features/personalization/screens/profile/profile.dart';
 import 'package:clean_ease/utils/constants/colors.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
@@ -48,10 +49,11 @@ class SettingScreen extends StatelessWidget {
                   const SizedBox(height: AppSize.spaceBtwItems),
 
                   // menu settings
-                  const AppSettingMenuTitle(
+                  AppSettingMenuTitle(
                     icon: Iconsax.safe_home,
                     title: 'My Addresses',
-                    subtitle: 'Set Address Servicess',
+                    subtitle: 'Set Address Services',
+                    onTap: () => Get.to(() => const UserAddressScreen()),
                   ),
                   const AppSettingMenuTitle(
                     icon: Iconsax.shopping_cart,
