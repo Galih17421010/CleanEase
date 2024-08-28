@@ -1,9 +1,9 @@
 import 'package:clean_ease/common/widgets/appbar/appbar.dart';
-import 'package:clean_ease/common/widgets/products/cart/add_remove_button.dart';
-import 'package:clean_ease/common/widgets/products/cart/cart_item.dart';
-import 'package:clean_ease/common/widgets/texts/product_price_text.dart';
+import 'package:clean_ease/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:clean_ease/features/shop/screens/checkout/checkout.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -15,39 +15,15 @@ class CartScreen extends StatelessWidget {
           showBackArrow: true,
           title:
               Text('Cart', style: Theme.of(context).textTheme.headlineSmall)),
-      body: Padding(
+      body: const Padding(
         padding: const EdgeInsets.all(AppSize.defaultSpace),
-        child: ListView.separated(
-          shrinkWrap: true,
-          itemCount: 4,
-          separatorBuilder: (_, __) =>
-              const SizedBox(height: AppSize.spaceBtwSections),
-          itemBuilder: (_, __) => const Column(
-            children: [
-              AppCartItem(),
-              SizedBox(height: AppSize.spaceBtwItems),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(width: 70),
-                      // remove button
-                      AppProductQuantity(),
-                    ],
-                  ),
-                  // Total Price
-                  AppProductPriceText(price: '245'),
-                ],
-              ),
-            ],
-          ),
-        ),
+        child: AppCartItems(),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(AppSize.defaultSpace),
-        child:
-            ElevatedButton(onPressed: () {}, child: Text('Checkout Rp 256.0')),
+        child: ElevatedButton(
+            onPressed: () => Get.to(() => const CheckoutScreen()),
+            child: const Text('Checkout Rp 256.0')),
       ),
     );
   }

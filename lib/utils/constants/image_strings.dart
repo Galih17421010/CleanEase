@@ -80,4 +80,10 @@ class AppImages {
   static const String product28 = "";
   static const String product29 = "";
   static const String product30 = "";
+
+  // Payment
+  static const String bankTransfer = "";
+  static const String creditCard = "";
+  static const String paypal = "";
+  static const String COD = "";
 }
