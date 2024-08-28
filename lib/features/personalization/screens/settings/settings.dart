@@ -5,6 +5,7 @@ import 'package:clean_ease/common/widgets/list_title/user_profile_title.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
 import 'package:clean_ease/features/personalization/screens/address/address.dart';
 import 'package:clean_ease/features/personalization/screens/profile/profile.dart';
+import 'package:clean_ease/features/shop/screens/order/order.dart';
 import 'package:clean_ease/utils/constants/colors.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -60,10 +61,11 @@ class SettingScreen extends StatelessWidget {
                     title: 'My Cart',
                     subtitle: 'Add, remove services and move to checkout',
                   ),
-                  const AppSettingMenuTitle(
+                  AppSettingMenuTitle(
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'In-Progress and Completed Orders',
+                    onTap: () => Get.to(() => const OrderScreen()),
                   ),
                   const AppSettingMenuTitle(
                     icon: Iconsax.bank,
