@@ -27,6 +27,7 @@ dependencies:
   capitalize: ^0.0.2
   carousel_slider: ^5.0.0
   readmore: ^3.0.0
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +46,7 @@ flutter:
     - assets/images/on_boarding/
     - assets/images/products/
     - assets/images/users/
+    - assets/images/reviews/
 
   fonts:
     - family: Poppins

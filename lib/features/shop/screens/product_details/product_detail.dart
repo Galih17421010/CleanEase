@@ -4,8 +4,10 @@ import 'package:clean_ease/features/shop/screens/product_details/widgets/product
 import 'package:clean_ease/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:clean_ease/features/shop/screens/product_details/widgets/product_metadata.dart';
 import 'package:clean_ease/features/shop/screens/product_details/widgets/rating_share_widget.dart';
+import 'package:clean_ease/features/shop/screens/product_reviews/product_review.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
@@ -73,7 +75,8 @@ class ProductDetailScreen extends StatelessWidget {
                           title: 'Review(1999)', showActionButton: false),
                       IconButton(
                           icon: const Icon(Iconsax.arrow_right_3, size: 18),
-                          onPressed: () {})
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewScreen())),
                     ],
                   ),
                   const SizedBox(height: AppSize.spaceBtwSections),
