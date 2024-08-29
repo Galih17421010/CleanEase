@@ -4,12 +4,14 @@ import 'package:clean_ease/common/widgets/products/product_card/product_card_ver
 import 'package:clean_ease/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:clean_ease/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
+import 'package:clean_ease/features/shop/screens/all_products/all_products.dart';
 import 'package:clean_ease/features/shop/screens/home/widget/home_appsbar.dart';
 import 'package:clean_ease/features/shop/screens/home/widget/home_categories.dart';
 import 'package:clean_ease/features/shop/screens/home/widget/promo_slider.dart';
 import 'package:clean_ease/utils/constants/image_strings.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -69,7 +71,8 @@ class HomeScreen extends StatelessWidget {
 
                   // Heading
                   AppSectionHeading(
-                      title: 'Popular Services', onPressed: () {}),
+                      title: 'Popular Services',
+                      onPressed: () => Get.to(() => const AllProducts())),
                   const SizedBox(height: AppSize.spaceBtwItems),
 
                   // Popular services
