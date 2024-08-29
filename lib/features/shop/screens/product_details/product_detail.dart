@@ -17,36 +17,36 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AppBottomAddToCart(),
+      bottomNavigationBar: const AppBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             // product image slider
-            AppProductImageSlider(),
+            const AppProductImageSlider(),
 
             // product detail
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   right: AppSize.defaultSpace,
                   left: AppSize.defaultSpace,
                   bottom: AppSize.defaultSpace),
               child: Column(
                 children: [
                   // Rating & share button
-                  AppRatingAndShare(),
+                  const AppRatingAndShare(),
 
                   // Price Title Stock Brand
-                  AppProductMetaData(),
+                  const AppProductMetaData(),
 
                   // Attribute
-                  AppProductAtributes(),
+                  const AppProductAtributes(),
                   const SizedBox(height: AppSize.spaceBtwSections),
 
                   // Checkout button
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: () {}, child: Text('Checkout'))),
+                          onPressed: () {}, child: const Text('Checkout'))),
                   const SizedBox(height: AppSize.spaceBtwSections),
 
                   // Description
@@ -59,9 +59,9 @@ class ProductDetailScreen extends StatelessWidget {
                     trimMode: TrimMode.Line,
                     trimCollapsedText: ' Show more',
                     trimExpandedText: ' Less',
-                    moreStyle: const TextStyle(
+                    moreStyle: TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle: const TextStyle(
+                    lessStyle: TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 

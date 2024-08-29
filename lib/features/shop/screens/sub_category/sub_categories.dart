@@ -12,7 +12,7 @@ class SubCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppsBar(title: Text('Cleaning'), showBackArrow: true),
+      appBar: const AppsBar(title: Text('Cleaning'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(AppSize.defaultSpace),

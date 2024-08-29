@@ -71,7 +71,7 @@ class AppProductCardHorizontal extends StatelessWidget {
           SizedBox(
             width: 172,
             child: Padding(
-              padding: EdgeInsets.only(top: AppSize.sm, left: AppSize.sm),
+              padding: const EdgeInsets.only(top: AppSize.sm, left: AppSize.sm),
               child: Column(
                 children: [
                   const Column(

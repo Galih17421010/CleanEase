@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CartScreen extends StatelessWidget {
           title:
               Text('Cart', style: Theme.of(context).textTheme.headlineSmall)),
       body: const Padding(
-        padding: const EdgeInsets.all(AppSize.defaultSpace),
+        padding: EdgeInsets.all(AppSize.defaultSpace),
         child: AppCartItems(),
       ),
       bottomNavigationBar: Padding(
