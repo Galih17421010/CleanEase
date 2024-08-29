@@ -28,6 +28,8 @@ dependencies:
   readmore: ^3.0.0
   flutter_rating_bar: ^4.0.1
   firebase_core: ^2.24.2
+  connectivity_plus: ^6.0.5
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:

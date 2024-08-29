@@ -86,4 +86,7 @@ class AppImages {
   static const String creditCard = "";
   static const String paypal = "";
   static const String COD = "";
+
+  static const String docerAnimation =
+      "assets/images/animations/icons8-load-40.png";
 }
