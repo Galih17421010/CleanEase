@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:204534886892:android:87c6817a8c1effa7b510c9",
+        "mobilesdk_app_id": "1:204534886892:android:f53a5e76d5037ccbb510c9",
         "android_client_info": {
-          "package_name": "cleanease.app"
+          "package_name": "com.example.clean_ease"
         }
       },
       "oauth_client": [
