@@ -1,4 +1,4 @@
-import 'package:clean_ease/features/authentication/controller/onboarding_controller.dart';
+import 'package:clean_ease/features/authentication/controller/onboarding/onboarding_controller.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
