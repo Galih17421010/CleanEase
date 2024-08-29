@@ -1,4 +1,6 @@
 import 'package:clean_ease/data/repositories/authentication/authentication_repository.dart';
+import 'package:clean_ease/data/repositories/user/user_repository.dart';
+import 'package:clean_ease/features/authentication/screens/signup/verify_email.dart';
 import 'package:clean_ease/features/personalization/models/user_model.dart';
 import 'package:clean_ease/utils/constants/image_strings.dart';
 import 'package:clean_ease/utils/helpers/network_manager.dart';
@@ -28,10 +30,16 @@ class SignupController extends GetxController {
 
       // check internet
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
+      if (!isConnected) {
+        AppFullScreenLoader.stopLoading();
+        return;
+      }
 
       // form validation
-      if (!signupFormKey.currentState!.validate()) return;
+      if (!signupFormKey.currentState!.validate()) {
+        AppFullScreenLoader.stopLoading();
+        return;
+      }
 
       // Privacy policy
       if (!privacyPolicy.value) {
@@ -57,10 +65,26 @@ class SignupController extends GetxController {
         phoneNumber: phoneNumber.text.trim(),
         profilePicture: '',
       );
-    } catch (e) {
-      AppLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-    } finally {
+
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
+
+      // Remove loader
       AppFullScreenLoader.stopLoading();
+
+      // Success Message
+      AppLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your account has been created. Verify email to continue');
+
+      // Move to email verify
+      Get.to(() => const VerifyEmailScreen());
+    } catch (e) {
+      // Remove loader
+      AppFullScreenLoader.stopLoading();
+
+      // show error
+      AppLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 }

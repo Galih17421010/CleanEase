@@ -1,5 +1,5 @@
 import 'package:clean_ease/utils/formatters/formatter.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
   final String id;
@@ -57,19 +57,19 @@ class UserModel {
     };
   }
 
-  factory UserModel.fromSnapShot(
-      DocumentSnapshot<Map<String, dynamic>> document) {
-    if (document.data() != null) {
-      final data = document.data()!;
-      return UserModel(
-        id: document.id,
-        firstName: data['FirstName'] ?? '',
-        lastName: data['LastName'] ?? '',
-        username: data['Username'] ?? '',
-        email: data['Email'] ?? '',
-        phoneNumber: data['PhoneNumber'] ?? '',
-        profilePicture: data['ProfilePicture'] ?? '',
-      );
-    }
-  }
+  // factory UserModel.fromSnapShot(
+  //     DocumentSnapshot<Map<String, dynamic>> document) {
+  //   if (document.data() != null) {
+  //     final data = document.data()!;
+  //     return UserModel(
+  //       id: document.id,
+  //       firstName: data['FirstName'] ?? '',
+  //       lastName: data['LastName'] ?? '',
+  //       username: data['Username'] ?? '',
+  //       email: data['Email'] ?? '',
+  //       phoneNumber: data['PhoneNumber'] ?? '',
+  //       profilePicture: data['ProfilePicture'] ?? '',
+  //     );
+  //   }
+  // }
 }
