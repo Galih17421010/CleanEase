@@ -39,7 +39,7 @@ class AppProductCardVertical extends StatelessWidget {
               backgroundColor: dark ? AppColors.dark : AppColors.light,
               child: Stack(
                 children: [
-                  //thumbnail
+                  //thumbnail image
                   const AppRoundedImage(
                       imageUrl: AppImages.product1, applyImageRadius: true),
 
