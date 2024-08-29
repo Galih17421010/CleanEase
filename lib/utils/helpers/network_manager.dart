@@ -9,16 +9,17 @@ class NetworkManager extends GetxController {
   static NetworkManager get instance => Get.find();
 
   final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
   final Rx<ConnectivityResult> _connectionStatus = ConnectivityResult.none.obs;
 
   @override
   void onInit() {
     super.onInit();
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(
-            _updateConnectionStatus as void Function(
-                List<ConnectivityResult> event)?)
-        as StreamSubscription<ConnectivityResult>;
+
+    _connectivitySubscription = _connectivity.onConnectivityChanged
+        .listen((List<ConnectivityResult> results) {
+      _updateConnectionStatus(results.last);
+    });
   }
 
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {

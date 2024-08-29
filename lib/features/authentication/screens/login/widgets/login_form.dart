@@ -1,7 +1,6 @@
 import 'package:clean_ease/features/authentication/controller/login/login_controller.dart';
 import 'package:clean_ease/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:clean_ease/features/authentication/screens/signup/signup.dart';
-import 'package:clean_ease/navigation_menu.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/constants/text_strings.dart';
 import 'package:clean_ease/utils/validators/validation.dart';
@@ -81,7 +80,7 @@ class AppLoginForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(() => const NavigationMenu()),
+                    onPressed: () => controller.emailAndPasswordSignIn(),
                     child: const Text(AppTexts.signIn))),
             const SizedBox(height: AppSize.spaceBtwItems),
 
