@@ -24,10 +24,11 @@ class AppBrandCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: AppRoundedContainer(
-        padding: const EdgeInsets.all(AppSize.sm),
-        showBorder: true,
+        showBorder: showBorder,
         backgroundColor: Colors.transparent,
+        padding: const EdgeInsets.all(AppSize.sm),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Icon
             Flexible(

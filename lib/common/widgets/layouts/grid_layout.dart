@@ -22,9 +22,9 @@ class AppGridLayout extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
+        mainAxisExtent: mainAxisExtent,
         mainAxisSpacing: AppSize.gridViewSpacing,
         crossAxisSpacing: AppSize.gridViewSpacing,
-        mainAxisExtent: mainAxisExtent,
       ),
       itemBuilder: itemBuilder,
     );

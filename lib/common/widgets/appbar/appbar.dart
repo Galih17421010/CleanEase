@@ -10,10 +10,10 @@ class AppsBar extends StatelessWidget implements PreferredSizeWidget {
   const AppsBar({
     super.key,
     this.title,
-    this.showBackArrow = false,
     this.actions,
     this.leadingIcon,
     this.leadingOnPressed,
+    this.showBackArrow = false,
   });
 
   final Widget? title;
