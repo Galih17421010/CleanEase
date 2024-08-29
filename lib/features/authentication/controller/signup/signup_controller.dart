@@ -1,3 +1,5 @@
+import 'package:clean_ease/data/repositories/authentication/authentication_repository.dart';
+import 'package:clean_ease/features/personalization/models/user_model.dart';
 import 'package:clean_ease/utils/constants/image_strings.dart';
 import 'package:clean_ease/utils/helpers/network_manager.dart';
 import 'package:clean_ease/utils/popups/full_screen_loader.dart';
@@ -8,6 +10,8 @@ import 'package:get/get.dart';
 class SignupController extends GetxController {
   static SignupController get instance => Get.find();
 
+  final hidePassword = true.obs;
+  final privacyPolicy = true.obs;
   final email = TextEditingController();
   final lastName = TextEditingController();
   final username = TextEditingController();
@@ -16,23 +20,43 @@ class SignupController extends GetxController {
   final phoneNumber = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-  Future<void> signup() async {
+  void signup() async {
     try {
       // Loading
       AppFullScreenLoader.openLoadingDialog(
           'We are processing your information...', AppImages.docerAnimation);
 
+      // check internet
       final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
 
-      if (!isConnected) {
-        AppFullScreenLoader.stopLoading();
+      // form validation
+      if (!signupFormKey.currentState!.validate()) return;
+
+      // Privacy policy
+      if (!privacyPolicy.value) {
+        AppLoaders.warningSnackBar(
+            title: 'Accept Privacy Policy',
+            message:
+                'In order to create account, you must have to read and accept the Privacy Policy & Term of Use.');
         return;
       }
 
-      if (!signupFormKey.currentState!.validate()) {
-        AppFullScreenLoader.stopLoading();
-        return;
-      }
+      // Register
+      final userCredential = await AuthenticationRepository.instance
+          .registerWithEmailAndPassword(
+              email.text.trim(), password.text.trim());
+
+      // Auth user data in firestore
+      final newUser = UserModel(
+        id: userCredential.user!.uid,
+        firstName: firstName.text.trim(),
+        lastName: lastName.text.trim(),
+        username: username.text.trim(),
+        email: email.text.trim(),
+        phoneNumber: phoneNumber.text.trim(),
+        profilePicture: '',
+      );
     } catch (e) {
       AppLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {

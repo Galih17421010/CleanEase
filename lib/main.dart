@@ -1,5 +1,5 @@
 import 'package:clean_ease/app.dart';
-import 'package:clean_ease/data/repositories/authentication_repository.dart';
+import 'package:clean_ease/data/repositories/authentication/authentication_repository.dart';
 import 'package:clean_ease/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
