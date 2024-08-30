@@ -2,10 +2,10 @@ import 'package:clean_ease/common/widgets/appbar/appbar.dart';
 import 'package:clean_ease/common/widgets/images/app_circular_image.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
 import 'package:clean_ease/features/personalization/controller/user_controller.dart';
+import 'package:clean_ease/features/personalization/screens/profile/widget/change_name.dart';
 import 'package:clean_ease/features/personalization/screens/profile/widget/profile_menu.dart';
 import 'package:clean_ease/utils/constants/image_strings.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
-import 'package:clean_ease/utils/helpers/change_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => controller.deleteAccountWarningPopup(),
                   child: const Text('Close Account',
                       style: TextStyle(color: Colors.red)),
                 ),
