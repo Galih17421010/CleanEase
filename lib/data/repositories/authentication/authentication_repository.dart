@@ -7,7 +7,6 @@ import 'package:clean_ease/utils/exceptions/firebase_exceptions.dart';
 import 'package:clean_ease/utils/exceptions/format_exceptions.dart';
 import 'package:clean_ease/utils/exceptions/platform_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -20,6 +19,8 @@ class AuthenticationRepository extends GetxController {
 
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  User? get authUser => _auth.currentUser;
 
   @override
   void onReady() {
