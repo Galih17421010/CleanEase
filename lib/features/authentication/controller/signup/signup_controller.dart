@@ -29,11 +29,11 @@ class SignupController extends GetxController {
           'We are processing your information...', AppImages.docerAnimation);
 
       // check internet
-      // final isConnected = await NetworkManager.instance.isConnected();
-      // if (!isConnected) {
-      //   AppFullScreenLoader.stopLoading();
-      //   return;
-      // }
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        AppFullScreenLoader.stopLoading();
+        return;
+      }
 
       // form validation
       if (!signupFormKey.currentState!.validate()) {

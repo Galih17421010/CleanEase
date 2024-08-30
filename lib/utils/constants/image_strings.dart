@@ -88,5 +88,5 @@ class AppImages {
   static const String COD = "";
 
   static const String docerAnimation =
-      "assets/images/animations/icons8-load-40.png";
+      "assets/images/animations/141594-animation-of-docer.json";
 }
