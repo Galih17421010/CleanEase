@@ -1,7 +1,15 @@
+import 'package:clean_ease/data/repositories/authentication/authentication_repository.dart';
 import 'package:clean_ease/data/repositories/user/user_repository.dart';
+import 'package:clean_ease/features/authentication/screens/login/login.dart';
 import 'package:clean_ease/features/personalization/models/user_model.dart';
+import 'package:clean_ease/features/personalization/screens/profile/widget/re_authenticate_user_login_form.dart';
+import 'package:clean_ease/utils/constants/image_strings.dart';
+import 'package:clean_ease/utils/constants/sizes.dart';
+import 'package:clean_ease/utils/helpers/network_manager.dart';
+import 'package:clean_ease/utils/popups/full_screen_loader.dart';
 import 'package:clean_ease/utils/popups/loaders.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {
@@ -9,7 +17,12 @@ class UserController extends GetxController {
 
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
+
+  final hidePassword = false.obs;
+  final verifyEmail = TextEditingController();
+  final verifyPassword = TextEditingController();
   final userRepository = Get.put(UserRepository());
+  GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
@@ -58,6 +71,81 @@ class UserController extends GetxController {
           title: 'Data not saved',
           message:
               'Something went wrong while saving your information. You can re-save your data in your Profile');
+    }
+  }
+
+  void deleteAccountWarningPopup() {
+    Get.defaultDialog(
+      contentPadding: const EdgeInsets.all(AppSize.md),
+      title: 'Delete Account',
+      middleText: 'Are you sure to delete your account?',
+      confirm: ElevatedButton(
+        onPressed: () async => deleteUserAccount(),
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            side: const BorderSide(color: Colors.red)),
+        child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSize.lg),
+            child: Text('Delete')),
+      ),
+      cancel: OutlinedButton(
+        child: const Text('Cancel'),
+        onPressed: () => Navigator.of(Get.overlayContext!).pop(),
+      ),
+    );
+  }
+
+  void deleteUserAccount() async {
+    try {
+      AppFullScreenLoader.openLoadingDialog(
+          'Processing', AppImages.docerAnimation);
+
+      final auth = AuthenticationRepository.instance;
+      final provider =
+          auth.authUser!.providerData.map((e) => e.providerId).first;
+
+      if (provider.isNotEmpty) {
+        if (provider == 'google.com') {
+          await auth.signInWithGoogle();
+          await auth.deleteAccount();
+          AppFullScreenLoader.stopLoading();
+          Get.offAll(() => const LoginScreen());
+        } else if (provider == 'password') {
+          AppFullScreenLoader.stopLoading();
+          Get.to(() => const ReAuthenticateUserLoginForm());
+        }
+      }
+    } catch (e) {
+      AppFullScreenLoader.stopLoading();
+      AppLoaders.warningSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
+
+  Future<void> reAuthenticateEmailAndPasswordUser() async {
+    try {
+      AppFullScreenLoader.openLoadingDialog(
+          'Processing', AppImages.docerAnimation);
+
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        AppFullScreenLoader.stopLoading();
+        return;
+      }
+
+      if (!reAuthFormKey.currentState!.validate()) {
+        AppFullScreenLoader.stopLoading();
+        return;
+      }
+
+      await AuthenticationRepository.instance
+          .reAuthenticateWithEmailAndPassword(
+              verifyEmail.text.trim(), verifyPassword.text.trim());
+      await AuthenticationRepository.instance.deleteAccount();
+      AppFullScreenLoader.stopLoading();
+      Get.offAll(() => const LoginScreen());
+    } catch (e) {
+      AppFullScreenLoader.stopLoading();
+      AppLoaders.warningSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 }
