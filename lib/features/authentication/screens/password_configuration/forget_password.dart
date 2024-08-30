@@ -1,6 +1,7 @@
-import 'package:clean_ease/features/authentication/screens/password_configuration/reset_password.dart';
+import 'package:clean_ease/features/authentication/controller/forget_password/forget_password_controller.dart';
 import 'package:clean_ease/utils/constants/sizes.dart';
 import 'package:clean_ease/utils/constants/text_strings.dart';
+import 'package:clean_ease/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -10,6 +11,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -26,10 +28,15 @@ class ForgetPassword extends StatelessWidget {
             const SizedBox(height: AppSize.spaceBtwSections * 2),
 
             //Text field
-            TextFormField(
-              decoration: const InputDecoration(
-                  labelText: AppTexts.email,
-                  prefixIcon: Icon(Iconsax.direct_right)),
+            Form(
+              key: controller.forgetPasswordFromKey,
+              child: TextFormField(
+                controller: controller.email,
+                validator: AppValidator.validateEmail,
+                decoration: const InputDecoration(
+                    labelText: AppTexts.email,
+                    prefixIcon: Icon(Iconsax.direct_right)),
+              ),
             ),
             const SizedBox(height: AppSize.spaceBtwSections),
 
@@ -37,7 +44,7 @@ class ForgetPassword extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.off(() => const ResetPassword()),
+                    onPressed: () => controller.sendPasswordResetEmail(),
                     child: const Text(AppTexts.submit))),
           ],
         ),
