@@ -18,7 +18,7 @@ class UserRepository extends GetxController {
       await _db.collection("Users").doc(user.id).set(user.toJson());
     } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
-    } on FirebaseException catch (_) {
+    } on FormatException catch (_) {
       throw const AppFormatException();
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;
@@ -28,7 +28,7 @@ class UserRepository extends GetxController {
   }
 
   // Fetch detail
-  Future<UserModel> fetchUserDetails(UserModel user) async {
+  Future<UserModel> fetchUserDetails() async {
     try {
       final documentSnapshot = await _db
           .collection("Users")
@@ -41,7 +41,7 @@ class UserRepository extends GetxController {
       }
     } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
-    } on FirebaseException catch (_) {
+    } on FormatException catch (_) {
       throw const AppFormatException();
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;
@@ -59,7 +59,7 @@ class UserRepository extends GetxController {
           .update(updateUser.toJson());
     } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
-    } on FirebaseException catch (_) {
+    } on FormatException catch (_) {
       throw const AppFormatException();
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;
@@ -74,7 +74,7 @@ class UserRepository extends GetxController {
       await _db.collection("Users").doc().update(json);
     } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
-    } on FirebaseException catch (_) {
+    } on FormatException catch (_) {
       throw const AppFormatException();
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;
@@ -89,7 +89,7 @@ class UserRepository extends GetxController {
       await _db.collection("Users").doc(userId).delete();
     } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
-    } on FirebaseException catch (_) {
+    } on FormatException catch (_) {
       throw const AppFormatException();
     } on PlatformException catch (e) {
       throw AppPlatformException(e.code).message;

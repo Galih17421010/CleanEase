@@ -5,12 +5,12 @@ import 'package:shimmer/shimmer.dart';
 
 class AppShimmerEffect extends StatelessWidget {
   const AppShimmerEffect({
-    Key? key,
+    super.key,
     required this.width,
     required this.height,
     this.radius = 15,
     this.color,
-  }) : super(key: key);
+  });
 
   final double width, height, radius;
   final Color? color;
