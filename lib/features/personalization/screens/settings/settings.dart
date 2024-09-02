@@ -3,6 +3,7 @@ import 'package:clean_ease/common/widgets/custom_shapes/containers/primary_heade
 import 'package:clean_ease/common/widgets/list_title/setting_menu_title.dart';
 import 'package:clean_ease/common/widgets/list_title/user_profile_title.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
+import 'package:clean_ease/features/authentication/screens/login/login.dart';
 import 'package:clean_ease/features/personalization/screens/address/address.dart';
 import 'package:clean_ease/features/personalization/screens/profile/profile.dart';
 import 'package:clean_ease/features/shop/screens/order/order.dart';
@@ -121,7 +122,8 @@ class SettingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {}, child: const Text('Logout')),
+                        onPressed: () => Get.to(() => const LoginScreen()),
+                        child: const Text('Logout')),
                   ),
                   const SizedBox(height: AppSize.spaceBtwSections * 2.5),
                 ],
