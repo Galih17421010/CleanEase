@@ -172,6 +172,10 @@ class UserController extends GetxController {
         await userRepository.updateSingleField(json);
 
         user.value.profilePicture = imageUrl;
+        user.refresh();
+        AppLoaders.successSnackBar(
+            title: 'Congratulation',
+            message: 'Your profile image has been updated');
       }
     } catch (e) {
       AppLoaders.errorSnackBar(
