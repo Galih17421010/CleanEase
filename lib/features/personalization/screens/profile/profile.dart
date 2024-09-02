@@ -1,5 +1,6 @@
 import 'package:clean_ease/common/widgets/appbar/appbar.dart';
 import 'package:clean_ease/common/widgets/images/app_circular_image.dart';
+import 'package:clean_ease/common/widgets/loaders/shimmer.dart';
 import 'package:clean_ease/common/widgets/texts/section_heading.dart';
 import 'package:clean_ease/features/personalization/controller/user_controller.dart';
 import 'package:clean_ease/features/personalization/screens/profile/widget/change_name.dart';
@@ -35,11 +36,14 @@ class ProfileScreen extends StatelessWidget {
                       final image = networkImage.isNotEmpty
                           ? networkImage
                           : AppImages.user;
-                      return AppCircularImage(
-                          image: image,
-                          width: 80,
-                          height: 80,
-                          isNetworkImage: networkImage.isNotEmpty);
+                      return controller.imageUploading.value
+                          ? const AppShimmerEffect(
+                              width: 80, height: 80, radius: 80)
+                          : AppCircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: networkImage.isNotEmpty);
                     }),
                     TextButton(
                         onPressed: () => controller.userUploadProfilePicture(),
